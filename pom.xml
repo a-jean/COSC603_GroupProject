@@ -12,11 +12,28 @@
    <maven.compiler.source>7</maven.compiler.source>
    <maven.compiler.target>1.7</maven.compiler.target>
  </properties>
- 
- 
- 
- 
+
+
+
+
 	<dependencies>
+		<dependency>
+			<groupId>org.openqa</groupId>
+			<artifactId>selenium-api</artifactId>
+			<version>3.141.59</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/selenium-api-3.141.59.jar</systemPath>
+			<type>jar</type>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-install-plugin</artifactId>
+			<version>2.5.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/maven-install-plugin-2.5.1.jar</systemPath>
+			<type>jar</type>
+		</dependency>
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -30,6 +47,27 @@
 
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-install-plugin</artifactId>
+				<version>2.5.1</version>
+				<configuration>
+					<groupId>your.group</groupId>
+					<artifactId>your_artifact</artifactId>
+					<version>some.version</version>
+					<packaging>jar</packaging>
+					<file>${basedir}/lib/selenium-api-3.141.59.jar</file>
+				</configuration>
+				<executions>
+					<execution>
+						<id>install-jar-lib</id>
+						<goals>
+							<goal>install-file</goal>
+						</goals>
+						<phase>validate</phase>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
