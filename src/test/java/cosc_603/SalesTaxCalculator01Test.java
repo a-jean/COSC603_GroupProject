@@ -19,47 +19,22 @@ import java.util.Map;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class SalesTaxCalculator01Test {
-  private WebDriver driver;
-  private Map<String, Object> vars;
-  JavascriptExecutor js;
-  @Before
-  public void setUp() {
-    Path currentRelativePath = Paths.get("");
-    String path = currentRelativePath.toAbsolutePath().toString() + "/chromedriver";
-    System.setProperty("webdriver.chrome.driver", path);
-    ChromeOptions options = new ChromeOptions();
-    options.addArguments("headless");
-    driver = new ChromeDriver(options);
-    js = (JavascriptExecutor) driver;
-    vars = new HashMap<String, Object>();
-  }
-  @After
-  public void tearDown() {
-    driver.quit();
-  }
+public class SalesTaxCalculator01Test extends BaseTest {
+
   @Test
-  public void salesTaxCalculator01() {
+  public void salesTaxCalculator01() throws InterruptedException {
     driver.get("https://www.calculator.net/sales-tax-calculator.html");
     driver.manage().window().setSize(new Dimension(1680, 1027));
-    driver.findElement(By.name("beforetax")).click();
-    driver.findElement(By.name("beforetax")).click();
     {
       WebElement element = driver.findElement(By.name("beforetax"));
       Actions builder = new Actions(driver);
       builder.doubleClick(element).perform();
     }
     driver.findElement(By.name("beforetax")).sendKeys("1200");
-    driver.findElement(By.name("taxrate")).click();
     driver.findElement(By.cssSelector("tr:nth-child(4) input")).click();
-    driver.findElement(By.cssSelector(".verybigtext:nth-child(4)")).click();
-    driver.findElement(By.cssSelector(".verybigtext:nth-child(4)")).click();
+
     assertThat(driver.findElement(By.cssSelector(".verybigtext:nth-child(4)")).getText(), is("Before Tax Price: $1,200.00"));
-    driver.findElement(By.cssSelector(".verybigtext:nth-child(5) b")).click();
-    driver.findElement(By.cssSelector(".verybigtext:nth-child(5)")).click();
     assertThat(driver.findElement(By.cssSelector(".verybigtext:nth-child(5) b")).getText(), is("$78.00"));
-    driver.findElement(By.cssSelector(".verybigtext:nth-child(6)")).click();
-    driver.findElement(By.cssSelector(".verybigtext:nth-child(6)")).click();
     assertThat(driver.findElement(By.cssSelector(".verybigtext:nth-child(6) b")).getText(), is("$1,278.00"));
   }
 }
