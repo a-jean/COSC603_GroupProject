@@ -23,9 +23,10 @@ public class BaseTest {
         Path currentRelativePath = Paths.get("");
         String path = currentRelativePath.toAbsolutePath().toString() + "/chromedriver";
         System.setProperty("webdriver.chrome.driver", path);
+        //System.setProperty("webdriver.chrome.driver", "/usr/local/share/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
-        driver = new ChromeDriver(options);
+        driver = new ChromeDriver(options); 
         js = (JavascriptExecutor) driver;
         vars = new HashMap<String, Object>();
     }
