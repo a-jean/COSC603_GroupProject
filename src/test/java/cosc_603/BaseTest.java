@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +21,9 @@ public class BaseTest {
     @Before
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "/usr/local/share/chromedriver");
+//        Path currentRelativePath = Paths.get("");
+//        String path = currentRelativePath.toAbsolutePath().toString() + "/chromedriver";
+//        System.setProperty("webdriver.chrome.driver", path);
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
         driver = new ChromeDriver(options); 
