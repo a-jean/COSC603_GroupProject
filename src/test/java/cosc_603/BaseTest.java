@@ -18,9 +18,6 @@ public class BaseTest {
 
     @Before
     public void setUp() {
-//        Path currentRelativePath = Paths.get("");
-//        String path = currentRelativePath.toAbsolutePath().toString() + "/chromedriver";
-//        System.setProperty("webdriver.chrome.driver", path);
         System.setProperty("webdriver.chrome.driver", "/usr/local/share/chromedriver");
         ChromeOptions options = new ChromeOptions();
         options.addArguments("headless");
