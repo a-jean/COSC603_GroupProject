@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-public class TriangleCalculator extends BaseTest {
+public class TriangleCalculatorTest extends BaseTest {
     @Test
     public void triangleCalcTest1() {
         driver.get("https://www.calculator.net/");

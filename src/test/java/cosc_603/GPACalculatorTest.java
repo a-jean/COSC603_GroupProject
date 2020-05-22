@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
-public class GPACalculator extends BaseTest{
+public class GPACalculatorTest extends BaseTest{
     @Test
     public void test1() {
         driver.get("https://www.calculator.net/");
