@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
+
 import static org.junit.Assert.assertThat;
 import org.junit.Test;
 import org.junit.Before;
@@ -29,7 +30,9 @@ import org.openqa.selenium.Keys;
 import java.util.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+
 public class GPACalculatorTest extends BaseTest{
+  
     @Test
     public void test1() {
         driver.get("https://www.calculator.net/");
@@ -47,14 +50,17 @@ public class GPACalculatorTest extends BaseTest{
         {
             WebElement dropdown = driver.findElement(By.name("la1"));
             dropdown.findElement(By.xpath("//option[. = 'A+']")).click();
+
         }
         driver.findElement(By.cssSelector("table:nth-child(16) input")).click();
     }
+  
     @Test
     public void test2() {
         driver.get("https://www.calculator.net/");
         driver.manage().window().setSize(new Dimension(701, 825));
         driver.findElement(By.linkText("GPA Calculator")).click();
+
         driver.findElement(By.cssSelector(".clearbtn:nth-child(1)")).click();
         driver.findElement(By.name("da1")).click();
         driver.findElement(By.name("da1")).sendKeys("Writing");
@@ -71,6 +77,7 @@ public class GPACalculatorTest extends BaseTest{
         assertThat(driver.getTitle(), is("GPA Calculator"));
         driver.findElement(By.cssSelector("table:nth-child(16) input")).click();
     }
+  
     @Test
     public void test3() {
         driver.get("https://www.calculator.net/");
@@ -106,8 +113,10 @@ public class GPACalculatorTest extends BaseTest{
             assertThat(value, is(""));
         }
         driver.findElement(By.name("gpaform")).click();
+
         driver.findElement(By.cssSelector("table:nth-child(16) input")).click();
     }
+  
     @Test
     public void test4() {
         driver.get("https://www.calculator.net/");
@@ -144,9 +153,11 @@ public class GPACalculatorTest extends BaseTest{
         {
             List<WebElement> elements = driver.findElements(By.linkText("+ add more courses"));
             assert(elements.size() > 0);
+
         }
         driver.findElement(By.cssSelector("table:nth-child(16) input")).click();
     }
+  
     @Test
     public void test5() {
         driver.get("https://www.calculator.net/");
@@ -158,9 +169,11 @@ public class GPACalculatorTest extends BaseTest{
             WebElement element = driver.findElement(By.cssSelector("td > table:nth-child(2) tr:nth-child(1) > td:nth-child(1)"));
             Boolean isEditable = element.isEnabled() && element.getAttribute("readonly") == null;
             assertTrue(isEditable);
+
         }
         driver.findElement(By.cssSelector("table:nth-child(16) input")).click();
     }
+  
     @Test
     public void test6Test() {
         driver.get("https://www.calculator.net/");
@@ -175,7 +188,9 @@ public class GPACalculatorTest extends BaseTest{
             assertThat(value, is(""));
         }
         driver.findElement(By.cssSelector("form:nth-child(14) > .panel")).click();
+
     }
+  
     @Test
     public void test7() {
         driver.get("https://www.calculator.net/");
@@ -197,6 +212,7 @@ public class GPACalculatorTest extends BaseTest{
         driver.findElement(By.name("grcAdditionalCredit")).sendKeys("12");
         driver.findElement(By.cssSelector("td:nth-child(1) > input:nth-child(2)")).click();
     }
+  
     @Test
     public void test8() {
         driver.get("https://www.calculator.net/");
@@ -214,6 +230,7 @@ public class GPACalculatorTest extends BaseTest{
         driver.findElement(By.name("grcAdditionalCredit")).sendKeys("9");
         driver.findElement(By.cssSelector("td:nth-child(1) > input:nth-child(2)")).click();
     }
+  
     @Test
     public void test9() {
         driver.get("https://www.calculator.net/");
@@ -231,6 +248,7 @@ public class GPACalculatorTest extends BaseTest{
         assertThat(driver.findElement(By.cssSelector(".panel tr:nth-child(4) > td:nth-child(1)")).getText(), is("Additional Credits"));
         driver.findElement(By.cssSelector("td:nth-child(1) > input:nth-child(2)")).click();
     }
+  
     @Test
     public void test10() {
         driver.get("https://www.calculator.net/");

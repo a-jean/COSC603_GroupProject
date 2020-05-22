@@ -28,12 +28,15 @@ import org.openqa.selenium.Keys;
 import java.util.*;
 import java.net.MalformedURLException;
 import java.net.URL;
+
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
 public class TriangleCalculatorTest extends BaseTest {
+  
     @Test
     public void triangle1Test() {
         driver.get("https://www.calculator.net/");
@@ -43,6 +46,7 @@ public class TriangleCalculatorTest extends BaseTest {
         assertThat(driver.findElement(By.cssSelector("tr:nth-child(4) > td")).getText(), is("Angle Unit: \n     \ndegree °\n     radian\n    "));
         driver.findElement(By.cssSelector("tr:nth-child(5) input")).click();
     }
+  
     @Test
     public void triangle2Test() {
         driver.get("https://www.calculator.net/");
@@ -71,6 +75,7 @@ public class TriangleCalculatorTest extends BaseTest {
         driver.findElement(By.cssSelector("p:nth-child(4)")).click();
         assertThat(driver.findElement(By.cssSelector("font")).getText(), is("Angle \"a\" too big."));
     }
+  
     @Test
     public void triangle3Test() {
         driver.get("https://www.calculator.net/");
@@ -99,6 +104,7 @@ public class TriangleCalculatorTest extends BaseTest {
         driver.findElement(By.cssSelector("td > h3")).click();
         assertThat(driver.findElement(By.cssSelector("td > h3")).getText(), is("Obtuse Scalene Triangle"));
     }
+  
     @Test
     public void triangle4Test() {
         driver.get("https://www.calculator.net/");
@@ -125,6 +131,7 @@ public class TriangleCalculatorTest extends BaseTest {
         driver.findElement(By.cssSelector("td > h3")).click();
         assertThat(driver.findElement(By.cssSelector("td > h3")).getText(), is("Obtuse Isosceles Triangle"));
     }
+  
     @Test
     public void triangle5Test() {
         driver.get("https://www.calculator.net/");
@@ -141,6 +148,7 @@ public class TriangleCalculatorTest extends BaseTest {
         driver.findElement(By.cssSelector("td > h3")).click();
         assertThat(driver.findElement(By.cssSelector("td > h3")).getText(), is("Equilateral Triangle"));
     }
+  
     @Test
     public void triangle6Test() {
         driver.get("https://www.calculator.net/");
@@ -167,6 +175,7 @@ public class TriangleCalculatorTest extends BaseTest {
         driver.findElement(By.cssSelector("td > h3")).click();
         assertThat(driver.findElement(By.cssSelector("td > h3")).getText(), is("Acute Scalene Triangle"));
     }
+  
     @Test
     public void triangle7Test() {
         driver.get("https://www.calculator.net/");
@@ -186,6 +195,7 @@ public class TriangleCalculatorTest extends BaseTest {
             assertThat(value, is(""));
         }
     }
+  
     @Test
     public void triangle8Test() {
         driver.get("https://www.calculator.net/");
@@ -203,6 +213,7 @@ public class TriangleCalculatorTest extends BaseTest {
         driver.findElement(By.cssSelector("td > h3")).click();
         assertThat(driver.findElement(By.cssSelector("td > h3")).getText(), is("Right Scalene Triangle"));
     }
+  
     @Test
     public void triangle9Test() {
         driver.get("https://www.calculator.net/");
@@ -229,6 +240,7 @@ public class TriangleCalculatorTest extends BaseTest {
         driver.findElement(By.cssSelector("font")).click();
         assertThat(driver.findElement(By.cssSelector("font")).getText(), is("These three values can not be used to create an valid triangle."));
     }
+  
     @Test
     public void triangle10Test() {
         driver.get("https://www.calculator.net/");
@@ -244,5 +256,6 @@ public class TriangleCalculatorTest extends BaseTest {
         driver.findElement(By.name("va")).sendKeys(Keys.ENTER);
         driver.findElement(By.cssSelector("font")).click();
         assertThat(driver.findElement(By.cssSelector("font")).getText(), is("Please provide one side."));
+    
     }
 }

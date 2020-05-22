@@ -53,6 +53,8 @@ public class DueDateTest extends BaseTest {
     assertThat(driver.findElement(By.cssSelector("#cilastperiod > tbody > tr:nth-child(1) > td:nth-child(1)")).getText(), is("First Day of Your Last Period:"));
     driver.findElement(By.cssSelector("#cilastperiod > tbody > tr:nth-child(2) > td:nth-child(1)")).click();
     assertThat(driver.findElement(By.cssSelector("#cilastperiod > tbody > tr:nth-child(2) > td:nth-child(1)")).getText(), is("Average Length of Your Cycles:"));
+
+
   }
   @Test
   public void dd3Test() {
