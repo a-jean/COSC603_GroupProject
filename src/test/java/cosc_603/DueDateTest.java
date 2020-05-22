@@ -53,7 +53,6 @@ public class DueDateTest extends BaseTest {
       WebElement dropdown = driver.findElement(By.id("cLastPeriodDay_Day_ID"));
       dropdown.findElement(By.xpath("//option[. = '10']")).click();
     }
-    driver.findElement(By.cssSelector("#cilastperiod td > table > tbody > tr")).click();
     driver.findElement(By.id("cLastPeriodDay_Year_ID")).sendKeys("2019");
     driver.findElement(By.name("cCycleLength")).click();
     {
@@ -76,7 +75,6 @@ public class DueDateTest extends BaseTest {
       WebElement dropdown = driver.findElement(By.id("cLastPeriodDay_Day_ID"));
       dropdown.findElement(By.xpath("//option[. = '21']")).click();
     }
-    driver.findElement(By.cssSelector("#cilastperiod td > table > tbody > tr")).click();
     driver.findElement(By.id("cLastPeriodDay_Year_ID")).sendKeys("2019");
     driver.findElement(By.name("cCycleLength")).click();
     {
