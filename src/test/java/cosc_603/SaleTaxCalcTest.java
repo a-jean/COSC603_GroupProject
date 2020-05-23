@@ -40,7 +40,11 @@ public class SaleTaxCalcTest extends BaseTest {
         driver.get("https://www.calculator.net/");
         driver.manage().window().setSize(new Dimension(819, 447));
         driver.findElement(By.linkText("Sales Tax Calculator")).click();
-        driver.findElement(By.name("taxrate")).click();
+        {
+            WebElement element = driver.findElement(By.name("taxrate"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
         driver.findElement(By.name("taxrate")).sendKeys("10.5");
         driver.findElement(By.cssSelector("tr:nth-child(4) input")).click();
         assertThat(driver.findElement(By.cssSelector(".verybigtext:nth-child(6)")).getText(), is("After Tax Price: $110.50"));
@@ -51,9 +55,17 @@ public class SaleTaxCalcTest extends BaseTest {
         driver.get("https://www.calculator.net/");
         driver.manage().window().setSize(new Dimension(819, 447));
         driver.findElement(By.linkText("Sales Tax Calculator")).click();
-        driver.findElement(By.name("beforetax")).click();
+        {
+            WebElement element = driver.findElement(By.name("beforetax"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
         driver.findElement(By.name("beforetax")).sendKeys("170");
-        driver.findElement(By.name("taxrate")).click();
+        {
+            WebElement element = driver.findElement(By.name("taxrate"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
         driver.findElement(By.name("taxrate")).sendKeys("12.5");
         driver.findElement(By.cssSelector("tr:nth-child(4) input")).click();
         assertThat(driver.findElement(By.cssSelector(".verybigtext:nth-child(4)")).getText(), is("Before Tax Price: $170.00"));
@@ -66,36 +78,62 @@ public class SaleTaxCalcTest extends BaseTest {
         driver.get("https://www.calculator.net/");
         driver.manage().window().setSize(new Dimension(819, 447));
         driver.findElement(By.linkText("Sales Tax Calculator")).click();
-        driver.findElement(By.name("beforetax")).click();
-        driver.findElement(By.name("beforetax")).sendKeys("1200");
-        driver.findElement(By.name("taxrate")).click();
-        driver.findElement(By.name("taxrate")).sendKeys("9.5");
+        {
+            WebElement element = driver.findElement(By.name("beforetax"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
+        driver.findElement(By.name("beforetax")).sendKeys("8900");
+        {
+            WebElement element = driver.findElement(By.name("taxrate"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
+        driver.findElement(By.name("taxrate")).sendKeys("10.5");
         driver.findElement(By.cssSelector("tr:nth-child(4) input")).click();
-        assertThat(driver.findElement(By.cssSelector(".verybigtext:nth-child(5)")).getText(), is("Sale Tax: 9.50% or $114.00"));
-        driver.findElement(By.id("content")).click();
+        assertThat(driver.findElement(By.cssSelector(".verybigtext:nth-child(6)")).getText(), is("After Tax Price: $9,834.50"));
+        driver.findElement(By.cssSelector(".verybigtext:nth-child(6)")).click();
+        driver.findElement(By.cssSelector(".verybigtext:nth-child(5)")).click();
     }
     @Test
     public void salesTaxCalc4() {
         driver.get("https://www.calculator.net/");
         driver.manage().window().setSize(new Dimension(819, 447));
         driver.findElement(By.linkText("Sales Tax Calculator")).click();
-        driver.findElement(By.name("beforetax")).click();
-        driver.findElement(By.name("beforetax")).sendKeys("70");
-        driver.findElement(By.name("taxrate")).click();
-        driver.findElement(By.name("taxrate")).sendKeys("12.5");
+        {
+            WebElement element = driver.findElement(By.name("beforetax"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
+        driver.findElement(By.name("beforetax")).sendKeys("8901");
+        {
+            WebElement element = driver.findElement(By.name("taxrate"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
+        driver.findElement(By.name("taxrate")).sendKeys("10.5");
         driver.findElement(By.cssSelector("tr:nth-child(4) input")).click();
-        assertThat(driver.findElement(By.cssSelector(".verybigtext:nth-child(6)")).getText(), is("After Tax Price: $78.75"));
+        assertThat(driver.findElement(By.cssSelector(".verybigtext:nth-child(6)")).getText(), is("After Tax Price: $9,835.61"));
         driver.findElement(By.cssSelector(".verybigtext:nth-child(6)")).click();
+        driver.findElement(By.cssSelector(".verybigtext:nth-child(5)")).click();
     }
     @Test
     public void salesTaxCalc5() {
         driver.get("https://www.calculator.net/");
         driver.manage().window().setSize(new Dimension(819, 447));
         driver.findElement(By.linkText("Sales Tax Calculator")).click();
-        driver.findElement(By.name("beforetax")).click();
+        {
+            WebElement element = driver.findElement(By.name("beforetax"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
         driver.findElement(By.name("beforetax")).sendKeys("120");
         driver.findElement(By.cssSelector("table:nth-child(1) tr:nth-child(2) > td:nth-child(1)")).click();
-        driver.findElement(By.name("taxrate")).click();
+        {
+            WebElement element = driver.findElement(By.name("taxrate"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
         driver.findElement(By.name("taxrate")).sendKeys("9.5");
         driver.findElement(By.cssSelector("tr:nth-child(4) input")).click();
         assertThat(driver.findElement(By.cssSelector(".verybigtext:nth-child(6)")).getText(), is("After Tax Price: $131.40"));
@@ -109,9 +147,17 @@ public class SaleTaxCalcTest extends BaseTest {
         driver.get("https://www.calculator.net/");
         driver.manage().window().setSize(new Dimension(819, 447));
         driver.findElement(By.linkText("Sales Tax Calculator")).click();
-        driver.findElement(By.name("beforetax")).click();
+        {
+            WebElement element = driver.findElement(By.name("beforetax"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
         driver.findElement(By.name("beforetax")).sendKeys("30");
-        driver.findElement(By.name("taxrate")).click();
+        {
+            WebElement element = driver.findElement(By.name("taxrate"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
         driver.findElement(By.name("taxrate")).sendKeys("7.5");
         driver.findElement(By.cssSelector("tr:nth-child(4) input")).click();
         assertThat(driver.findElement(By.cssSelector(".verybigtext:nth-child(4)")).getText(), is("Before Tax Price: $30.00"));
@@ -125,9 +171,17 @@ public class SaleTaxCalcTest extends BaseTest {
         driver.get("https://www.calculator.net/");
         driver.manage().window().setSize(new Dimension(819, 447));
         driver.findElement(By.linkText("Sales Tax Calculator")).click();
-        driver.findElement(By.name("beforetax")).click();
+        {
+            WebElement element = driver.findElement(By.name("beforetax"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
         driver.findElement(By.name("beforetax")).sendKeys("175");
-        driver.findElement(By.name("taxrate")).click();
+        {
+            WebElement element = driver.findElement(By.name("taxrate"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
         driver.findElement(By.name("taxrate")).sendKeys("2.5");
         driver.findElement(By.cssSelector("tr:nth-child(4) input")).click();
         assertThat(driver.findElement(By.cssSelector(".verybigtext:nth-child(6)")).getText(), is("After Tax Price: $179.38"));
@@ -138,9 +192,17 @@ public class SaleTaxCalcTest extends BaseTest {
         driver.get("https://www.calculator.net/");
         driver.manage().window().setSize(new Dimension(819, 447));
         driver.findElement(By.linkText("Sales Tax Calculator")).click();
-        driver.findElement(By.name("beforetax")).click();
+        {
+            WebElement element = driver.findElement(By.name("beforetax"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
         driver.findElement(By.name("beforetax")).sendKeys("250");
-        driver.findElement(By.name("taxrate")).click();
+        {
+            WebElement element = driver.findElement(By.name("taxrate"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
         driver.findElement(By.name("taxrate")).sendKeys("23.5");
         driver.findElement(By.cssSelector("tr:nth-child(4) input")).click();
         assertThat(driver.findElement(By.cssSelector(".verybigtext:nth-child(6)")).getText(), is("After Tax Price: $308.75"));
@@ -154,12 +216,89 @@ public class SaleTaxCalcTest extends BaseTest {
         driver.get("https://www.calculator.net/");
         driver.manage().window().setSize(new Dimension(819, 447));
         driver.findElement(By.linkText("Sales Tax Calculator")).click();
-        driver.findElement(By.name("beforetax")).click();
+        {
+            WebElement element = driver.findElement(By.name("beforetax"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
         driver.findElement(By.name("beforetax")).sendKeys("200");
-        driver.findElement(By.name("taxrate")).click();
+        {
+            WebElement element = driver.findElement(By.name("taxrate"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
         driver.findElement(By.name("taxrate")).sendKeys("11.5");
         driver.findElement(By.cssSelector("tr:nth-child(4) input")).click();
         assertThat(driver.findElement(By.cssSelector(".verybigtext:nth-child(6)")).getText(), is("After Tax Price: $223.00"));
+        driver.findElement(By.cssSelector(".verybigtext:nth-child(6)")).click();
+        driver.findElement(By.cssSelector(".verybigtext:nth-child(5)")).click();
+    }
+
+    @Test
+    public void salesTaxCalc10() {
+        driver.get("https://www.calculator.net/");
+        driver.manage().window().setSize(new Dimension(819, 447));
+        driver.findElement(By.linkText("Sales Tax Calculator")).click();
+        {
+            WebElement element = driver.findElement(By.name("beforetax"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
+        driver.findElement(By.name("beforetax")).sendKeys("280");
+        {
+            WebElement element = driver.findElement(By.name("taxrate"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
+        driver.findElement(By.name("taxrate")).sendKeys("9.5");
+        driver.findElement(By.cssSelector("tr:nth-child(4) input")).click();
+        assertThat(driver.findElement(By.cssSelector(".verybigtext:nth-child(6)")).getText(), is("After Tax Price: $306.60"));
+        driver.findElement(By.cssSelector(".verybigtext:nth-child(6)")).click();
+        driver.findElement(By.cssSelector(".verybigtext:nth-child(5)")).click();
+    }
+
+    @Test
+    public void salesTaxCalc11() {
+        driver.get("https://www.calculator.net/");
+        driver.manage().window().setSize(new Dimension(819, 447));
+        driver.findElement(By.linkText("Sales Tax Calculator")).click();
+        {
+            WebElement element = driver.findElement(By.name("beforetax"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
+        driver.findElement(By.name("beforetax")).sendKeys("300");
+        {
+            WebElement element = driver.findElement(By.name("taxrate"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
+        driver.findElement(By.name("taxrate")).sendKeys("10.5");
+        driver.findElement(By.cssSelector("tr:nth-child(4) input")).click();
+        assertThat(driver.findElement(By.cssSelector(".verybigtext:nth-child(6)")).getText(), is("After Tax Price: $331.50"));
+        driver.findElement(By.cssSelector(".verybigtext:nth-child(6)")).click();
+        driver.findElement(By.cssSelector(".verybigtext:nth-child(5)")).click();
+    }
+
+    @Test
+    public void salesTaxCalc12() {
+        driver.get("https://www.calculator.net/");
+        driver.manage().window().setSize(new Dimension(819, 447));
+        driver.findElement(By.linkText("Sales Tax Calculator")).click();
+        {
+            WebElement element = driver.findElement(By.name("beforetax"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
+        driver.findElement(By.name("beforetax")).sendKeys("900");
+        {
+            WebElement element = driver.findElement(By.name("taxrate"));
+            Actions builder = new Actions(driver);
+            builder.doubleClick(element).perform();
+        }
+        driver.findElement(By.name("taxrate")).sendKeys("10.5");
+        driver.findElement(By.cssSelector("tr:nth-child(4) input")).click();
+        assertThat(driver.findElement(By.cssSelector(".verybigtext:nth-child(6)")).getText(), is("After Tax Price: $994.50"));
         driver.findElement(By.cssSelector(".verybigtext:nth-child(6)")).click();
         driver.findElement(By.cssSelector(".verybigtext:nth-child(5)")).click();
     }

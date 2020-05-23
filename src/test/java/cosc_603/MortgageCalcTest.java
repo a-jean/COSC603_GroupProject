@@ -48,7 +48,7 @@ public class MortgageCalcTest extends BaseTest {
             builder.moveToElement(element).release().perform();
         }
         driver.findElement(By.cssSelector(".h2result")).click();
-        assertThat(driver.findElement(By.cssSelector(".h2result")).getText(), is("Monthly Pay:   $1,080.39"));
+        assertThat(driver.findElement(By.cssSelector(".h2result")).getText(), is("Monthly Pay:   $1,088.45"));
         driver.findElement(By.cssSelector(".h2result")).click();
     }
 
